@@ -10,7 +10,7 @@ export default function dashboardpage() {
     return (
         <>
             <div className="w-screen h-screen flex flex-row bg-black overflow-x-hidden">
-                <div className="w-4/12 h-full align-top">
+                <div className="w-4/12 h-full align-top sticky top-0 ">
                 {
                     _navbar()
 
@@ -18,7 +18,7 @@ export default function dashboardpage() {
                 <div className="h-full w-full mx-5">
                      <_dashboard />
                 </div>
-                <div className="w-4/12 h-full self-end">
+                <div className="w-4/12 h-full self-end sticky top-0 ">
                 {_profilebar()}</div> 
 
             </div>

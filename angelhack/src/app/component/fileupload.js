@@ -1,6 +1,6 @@
 // components/FileUpload.js
 
-import { useState } from 'react';
+import { useState } from 'react'
 
 
 
