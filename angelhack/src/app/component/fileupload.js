@@ -1,17 +1,8 @@
 // components/FileUpload.js
 
 import { useState } from 'react';
-import formidable from 'formidable';
 import path from 'path';
 import fileHandler from './uploadFunc';
-// const path = require('path');
-// const fs = require('fs');
-// const path = require('/src/app/upload');
-
-// const fs = require('fs-extra')
-
-
-// Example usage:
 
 
 
