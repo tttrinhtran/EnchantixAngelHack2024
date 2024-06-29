@@ -22,15 +22,12 @@ export default function dashboard() {
             <div className="w-full h-fit py-2">
               {FileUpload()}
             </div>
-            <div className="w-full h-[200pt]">
+            <div className="w-full h-[50pt]">
 
 
             </div>
             <div className="w-full h-fit flex flex-col">
                 <div className="font-Poppins_sb text-white my-3 text-lg">Category</div>
-               
-               
-
                     <div className="grid grid-cols-4 gap-10">
 
                       <div className="w-full border-2 bg-none border-slate-400 rounded-lg flex flex-col p-5">
@@ -85,8 +82,44 @@ export default function dashboard() {
                     </div>
                     
                 </div>
-                        
+
+                <div className="font-Poppins_sb text-white my-5 text-lg">
+                  Recent
                 </div>
+
+                <div className="flex flex-col w-full h-fit rounded-2xl  overflow-hidden border-b-1 border-blue border-solid border-opacity-60 mr-2 mt-5">
+                  <div className="flex flex-row w-full h-[40px] bg-red bg-opacity-50 items-center justify-center ">
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-base text-purple">
+                              Asset Name
+                          </p>
+                      </div>
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-sm text-purple">
+                              ID
+                          </p>
+                      </div>
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-sm text-purple">
+                              Created
+                          </p>
+                      </div>
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-sm text-purple">
+                              Size
+                          </p>
+                      </div>
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-sm text-purple">
+                              Status
+                          </p>
+                      </div>
+                  </div>
+                </div>
+                        
+              </div>
+
+              
 
 
       
