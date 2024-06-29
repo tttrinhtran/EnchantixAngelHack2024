@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import _share from './share'
+import _share from "./share";
 
 export default function sharepage() {
 
@@ -9,5 +9,5 @@ export default function sharepage() {
             <div className="w-screen h-screen">
                 <_share/>
             </div>
-        </>)
+        </>);
 }

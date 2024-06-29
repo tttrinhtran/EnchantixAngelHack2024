@@ -1,5 +1,19 @@
 // components/FileUpload.js
+
 import { useState } from 'react';
+import formidable from 'formidable';
+import path from 'path';
+import fileHandler from './uploadFunc';
+// const path = require('path');
+// const fs = require('fs');
+// const path = require('/src/app/upload');
+
+// const fs = require('fs-extra')
+
+
+// Example usage:
+
+
 
 const FileUpload = () => {
   const [dragging, setDragging] = useState(false);
@@ -22,8 +36,15 @@ const FileUpload = () => {
     setDragging(false);
 
     const files = [...e.dataTransfer.files];
-    // Handle dropped files here (e.g., upload or process them)
-    console.log(files);
+    // save a file into folder upload
+    saveFile()
+    console.log(files); 
+
+    const options = {};
+    options.uploadDir = path.join(process.cwd(), '/Files');
+    fileHandler('POST',options);
+    console.log("Uploaded");
+
   };
 
   return (
