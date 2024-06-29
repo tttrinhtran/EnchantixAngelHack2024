@@ -3,7 +3,7 @@
 import { useState } from 'react';
 //import addData from "@/util/uploadFunc";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, addDoc } from 'firebase/firestore';
 import firebase_app from '../../util/firebase';
 
 
@@ -36,17 +36,19 @@ const FileUpload = () => {
         const downloadURL = await getDownloadURL(snapshot.ref);
 
         // Prepare data to store in Firestore
-        const data = {
-            owner: '7cd5aa51-18d3-4130-83c2-37aafc1385f0',
-            sharer: [],
-            fileName: file[0].name,
-            fileURL: downloadURL,
-            typeShare: 'private'
-        };
+        const docRef = doc(firestore, 'ownership', '7cd5aa51-18d3-4130-83c2-37aafc1385f0', 'files', snapshot.ref.name);
 
-        // Store metadata in Firestore
-        await setDoc(doc(firestore, 'ownership', 'user-id'), data);
+    // Prepare data to store in Firestore
+    const data = {
+        owner: '7cd5aa51-18d3-4130-83c2-37aafc1385f0',
+        sharer: [],
+        fileName: file[0].name,
+        fileURL: downloadURL,
+        typeShare: 'private'
+    };
 
+    // Store metadata in Firestore
+    await setDoc(docRef, data);
         console.log('File uploaded and metadata stored successfully.');
     } catch (error) {
         console.error('Error uploading file or storing metadata:', error);

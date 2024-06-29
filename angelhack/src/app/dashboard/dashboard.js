@@ -5,10 +5,13 @@ import React, { useState } from "react";
 import _seachbar from '../component/search'
 
 import FileUpload from "../component/fileupload.js"
+import getUserFiles from "../component/getAllFileFunc.js";
 
 
 export default function dashboard() {
-    
+    const userId = '7cd5aa51-18d3-4130-83c2-37aafc1385f0';
+
+    getUserFiles(userId);
 
     return (
         <>
