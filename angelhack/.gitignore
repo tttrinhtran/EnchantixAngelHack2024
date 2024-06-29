@@ -13,6 +13,9 @@
 /.next/
 /out/
 
+#idkwtf
+#/src/util/
+
 # production
 /build
 
