@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import _seachbar from '../component/search'
 
-import FileUpload from "../component/fileupload.js";
+import FileUpload from "../component/fileupload.js"
 
 
 export default function dashboard() {
@@ -16,9 +16,9 @@ export default function dashboard() {
             <div className="w-full h-fit self-start ">
                 {_seachbar()}
             </div>
-            <div className="w-full h-fit py-2">
+            {/* <div className="w-full h-fit py-2">
               {FileUpload()}
-            </div>
+            </div> */}
             <div className="w-full h-[200pt]">
 
 

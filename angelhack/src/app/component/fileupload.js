@@ -1,17 +1,6 @@
 // components/FileUpload.js
 
 import { useState } from 'react';
-import formidable from 'formidable';
-import path from 'path';
-import fileHandler from './uploadFunc';
-// const path = require('path');
-// const fs = require('fs');
-// const path = require('/src/app/upload');
-
-// const fs = require('fs-extra')
-
-
-// Example usage:
 
 
 
@@ -39,11 +28,6 @@ const FileUpload = () => {
     // save a file into folder upload
     saveFile()
     console.log(files); 
-
-    const options = {};
-    options.uploadDir = path.join(process.cwd(), '/Files');
-    fileHandler('POST',options);
-    console.log("Uploaded");
 
   };
 
