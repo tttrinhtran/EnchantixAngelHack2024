@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { useEffect } from 'react';
-import { app, analytics } from '../util/firebase'; // Adjust the path if necessary
+import { app, analytics, firestore} from '../util/firebase.js'; // Adjust the path if necessary
 
 export default function Home() {
   useEffect(() => {
     // You can now use Firebase services
     console.log(app);
     console.log(analytics);
+    console.log(firestore);
   }, []);
 
 

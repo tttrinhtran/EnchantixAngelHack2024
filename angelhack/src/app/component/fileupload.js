@@ -1,17 +1,61 @@
 // components/FileUpload.js
 
+<<<<<<< Updated upstream
 import { useState } from 'react'
+=======
+import { useState } from 'react';
+import addData from "@/util/uploadFunc";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import {firebase_app} from "@/util/firebase";
+>>>>>>> Stashed changes
 
 
+const storage = getStorage(firebase_app);
+const firestore = getFirestore(firebase_app);
 
 const FileUpload = () => {
   const [dragging, setDragging] = useState(false);
+
+  
 
   const handleDragEnter = (e) => {
     e.preventDefault();
     e.stopPropagation();
     setDragging(true);
   };
+
+
+  const upload = async (file) => {
+    try {
+        // Create a storage reference
+        console.log(file[0].name);
+        const storageRef = ref(storage, `uploads/${file[0].name}`);
+        
+        // Upload file using uploadBytesResumable
+        const uploadTask = uploadBytesResumable(storageRef, file[0]);
+
+        // Get the download URL asynchronously
+        const snapshot = await uploadTask;
+        const downloadURL = await getDownloadURL(snapshot.ref);
+
+        // Prepare data to store in Firestore
+        const data = {
+            owner: '7cd5aa51-18d3-4130-83c2-37aafc1385f0',
+            sharer: [],
+            fileName: file[0].name,
+            fileURL: downloadURL,
+            typeShare: 'private'
+        };
+
+        // Store metadata in Firestore
+        await setDoc(doc(firestore, 'ownership', 'user-id'), data);
+
+        console.log('File uploaded and metadata stored successfully.');
+    } catch (error) {
+        console.error('Error uploading file or storing metadata:', error);
+    }
+};
 
   const handleDragLeave = (e) => {
     e.preventDefault();
@@ -26,9 +70,13 @@ const FileUpload = () => {
 
     const files = [...e.dataTransfer.files];
     // save a file into folder upload
-    saveFile()
     console.log(files); 
+    upload(files);    
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   };
 
   return (
@@ -56,3 +104,6 @@ const FileUpload = () => {
 };
 
 export default FileUpload;
+
+
+
