@@ -1,14 +1,10 @@
 // components/FileUpload.js
 
-<<<<<<< Updated upstream
-import { useState } from 'react'
-=======
 import { useState } from 'react';
-import addData from "@/util/uploadFunc";
+//import addData from "@/util/uploadFunc";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import {firebase_app} from "@/util/firebase";
->>>>>>> Stashed changes
+import firebase_app from '../../util/firebase';
 
 
 const storage = getStorage(firebase_app);
@@ -73,10 +69,7 @@ const FileUpload = () => {
     console.log(files); 
     upload(files);    
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
   };
 
   return (

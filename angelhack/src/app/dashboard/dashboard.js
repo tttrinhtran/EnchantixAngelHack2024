@@ -16,9 +16,9 @@ export default function dashboard() {
             <div className="w-full h-fit self-start ">
                 {_seachbar()}
             </div>
-            {/* <div className="w-full h-fit py-2">
+            <div className="w-full h-fit py-2">
               {FileUpload()}
-            </div> */}
+            </div>
             <div className="w-full h-[200pt]">
 
 
