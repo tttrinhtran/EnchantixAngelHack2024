@@ -18,8 +18,8 @@ export default function uploadsuccess() {
                 <p className="text-white font-Poppins_sb mt-3">Your data is secured!</p>
                 <p className="text-dark-grey font-Poppins_re mt-1">You can share it with other people</p>
                 <div className="flex flex-row text-white w-full mt-5 "
-                ><button className="bg-none border-2 border-purple font-Poppins_sb rounded-xl py-2 px-4">Generate link</button>
-                <button className="bg-purple  p-1 font-Poppins_sb rounded-xl ml-auto  py-2 px-4">Done</button>
+                ><button className="bg-none border-2 border-purple font-Poppins_re rounded-xl py-2 px-4">Generate link</button>
+                <button className="bg-purple  p-1 font-Poppins_re rounded-xl ml-auto  py-2 px-4">Done</button>
                 </div>
 
 
