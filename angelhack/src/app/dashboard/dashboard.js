@@ -9,9 +9,44 @@ import getUserFiles from "../component/getAllFileFunc.js";
 
 
 export default function dashboard() {
-    const userId = '7cd5aa51-18d3-4130-83c2-37aafc1385f0';
+    const [files, setFiles] = useState([]);
 
-    getUserFiles(userId);
+    const [videoCount, setVideoCount] = useState(0);
+    const [audioCount, setAudioCount] = useState(0);
+    const [documentCount, setDocumentCount] = useState(0);
+    const [imageCount, setImageCount] = useState(0);
+    const userId = '7cd5aa51-18d3-4130-83c2-37aafc1385f0';
+  
+    const fetchFiles = async () => {
+      try {
+        const filesData = await getUserFiles(userId);
+        setVideoCount(0);
+        setAudioCount(0);
+        setDocumentCount(0);
+        setImageCount(0);
+        setFiles(filesData || []);
+        if (filesData) {
+          filesData.forEach((file) => {
+            const type=file.fileName.split('.').pop();
+            if (type === 'mp4' || type === 'mkv' || type === 'avi') {
+              setVideoCount((prev) => prev + 1);
+            } else if (type === 'mp3' || type === 'wav' || type === 'flac') {
+              setAudioCount((prev) => prev + 1);
+            } else if (type === 'pdf' || type === 'docx' || type === 'txt') {
+              setDocumentCount((prev) => prev + 1);
+            } else if (type === 'png' || type === 'jpg' || type === 'jpeg') {
+              setImageCount((prev) => prev + 1);
+            }
+          });
+        }
+
+      } catch (error) {
+        console.error('Error fetching user files:', error);
+      }
+    };
+  
+    // Call fetchFiles directly when component mounts
+    fetchFiles();
 
     return (
         <>
@@ -40,7 +75,7 @@ export default function dashboard() {
                       
 
                       <p className="font-Poppins_md text-white">Images</p>
-                      <p className="font-Poppins_md text-white">0 file</p>    
+                      <p className="font-Poppins_md text-white">{imageCount} file</p>    
 
                       </div>
                       <div className="border-2 bg-none border-slate-400 rounded-lg flex flex-col p-5">
@@ -51,7 +86,7 @@ export default function dashboard() {
                     </div>
 
                       <p className="font-Poppins_md text-white">Documents</p>
-                      <p className="font-Poppins_md text-white">0 file</p>    
+                      <p className="font-Poppins_md text-white">{documentCount} file</p>    
 
                       </div>
                       <div className="border-2 bg-none border-slate-400 rounded-lg flex flex-col p-5">
@@ -63,7 +98,7 @@ export default function dashboard() {
 
 
                       <p className="font-Poppins_md text-white">Audio</p>
-                      <p className="font-Poppins_md text-white">0 file</p>    
+                      <p className="font-Poppins_md text-white">{audioCount} file</p>    
 
                       </div>
                       <div className="border-2 bg-none border-slate-400 rounded-lg flex flex-col p-5">
@@ -74,7 +109,7 @@ export default function dashboard() {
                         </div>
 
                       <p className="font-Poppins_md text-white">Videos</p>
-                      <p className="font-Poppins_md text-white">0 file</p>    
+                      <p className="font-Poppins_md text-white">{videoCount} file</p>    
 
                       </div>
 
@@ -116,7 +151,38 @@ export default function dashboard() {
                       </div>
                   </div>
                 </div>
-                        
+                {files.length>0 && files.map((file) => (
+                  <div className="flex flex-col w-full h-fit rounded-2xl  overflow-hidden border-b-1 border-blue border-solid border-opacity-60 mr-2 mt-5">
+                  <div className="flex flex-row w-full h-[40px] bg-red bg-opacity-50 items-center justify-center ">
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-base text-white overflow-clip">
+                              {file.fileName}
+                          </p>
+                      </div>
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-sm text-white">
+                              {file.id}
+                          </p>
+                      </div>
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-sm text-white overflow-ellipsis ">
+                              {file.createdAt}
+                          </p>
+                      </div>
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-sm text-white overflow-ellipsis ">
+                              {file.size}
+                          </p>
+                      </div>
+                      <div className="w-1/6 text-left">
+                          <p className="font-Poppins_md text-sm text-white overflow-ellipsis ">
+                              {file.typeShare}
+                          </p>
+                      </div>
+                </div>
+                </div>
+                ))}
+              
               </div>
 
               

@@ -44,7 +44,9 @@ const FileUpload = () => {
         sharer: [],
         fileName: file[0].name,
         fileURL: downloadURL,
-        typeShare: 'private'
+        typeShare: 'private',
+        createdAt: new Date().getDate(),
+        size: file[0].size,
     };
 
     // Store metadata in Firestore
