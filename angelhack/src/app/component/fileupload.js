@@ -78,7 +78,7 @@ const FileUpload = () => {
 
   return (
     <div
-      className={`flex flex-col items-center bg-purple  bg-opacity-35 border-2 border-white border-opacity-55 border-dashed rounded-lg p-8 text-center mx-8 ${
+      className={`flex flex-col items-center bg-purple  bg-opacity-35 border-2 border-white border-opacity-55 border-dashed rounded-lg p-8 text-center ${
         dragging ? 'border-purple' : ''
       }`}
       onDragOver={(e) => {
