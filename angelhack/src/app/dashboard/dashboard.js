@@ -34,7 +34,7 @@ export default function dashboard() {
               setAudioCount((prev) => prev + 1);
             } else if (type === 'pdf' || type === 'docx' || type === 'txt') {
               setDocumentCount((prev) => prev + 1);
-            } else if (type === 'png' || type === 'jpg' || type === 'jpeg') {
+            } else if (type === 'png' || type === 'jpg' || type === 'jpeg'|| type == 'JPG'|| type == 'JPEG' || type == 'PNG') {
               setImageCount((prev) => prev + 1);
             }
           });
@@ -50,7 +50,7 @@ export default function dashboard() {
 
     return (
         <>
-        <div className="h-full w-full mt-8 flex flex-col py-5">
+        <div className="h-fit w-full mt-8 flex flex-col py-5">
             <div className="w-full h-fit self-start ">
                 {_seachbar()}
             </div>
@@ -122,8 +122,8 @@ export default function dashboard() {
                   Recent
                 </div>
 
-                <div className="flex flex-col w-full h-fit rounded-2xl  overflow-hidden border-b-1 border-blue border-solid border-opacity-60 mr-2 mt-5">
-                  <div className="flex flex-row w-full h-[40px] bg-red bg-opacity-50 items-center justify-center ">
+                <div className="flex flex-col w-full h-full rounded-2xl  overflow-hidden border-b-1 border-blue border-solid border-opacity-60 mr-2 mt-5">
+                  <div className="flex flex-row w-full h-[60pt] bg-red bg-opacity-50 items-center justify-center ">
                       <div className="w-1/6 text-left">
                           <p className="font-Poppins_md text-base text-purple">
                               Asset Name
@@ -152,9 +152,9 @@ export default function dashboard() {
                   </div>
                 </div>
                 {files.length>0 && files.map((file) => (
-                  <div className="flex flex-col w-full h-fit rounded-2xl  overflow-hidden border-b-1 border-blue border-solid border-opacity-60 mr-2 mt-5">
-                  <div className="flex flex-row w-full h-[40px] bg-red bg-opacity-50 items-center justify-center ">
-                      <div className="w-1/6 text-left">
+                  <div className="flex flex-col w-full h-full rounded-2xl  overflow-hidden border-b-1 border-blue border-solid border-opacity-60 mr-2 mt-5">
+                  <div className="flex flex-row w-full h-full bg-red bg-opacity-50 items-center justify-center ">
+                      <div className="w-1/6 h-fit text-left">
                           <p className="font-Poppins_md text-base text-white overflow-clip">
                               {file.fileName}
                           </p>

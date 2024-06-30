@@ -14,7 +14,8 @@
 /out/
 
 #idkwtf
-#/src/util/
+/src/util/firebase.js
+.env
 
 # production
 /build
